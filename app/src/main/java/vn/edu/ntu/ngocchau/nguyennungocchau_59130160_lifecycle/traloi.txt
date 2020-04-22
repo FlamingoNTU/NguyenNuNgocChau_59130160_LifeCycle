@@ -1,0 +1,15 @@
+Câu 4: Các phương thức vòng đời được gọi khi ứng dụng đang chạy và người sử
+dụng bấm vào nút back sau đó mở lại ứng dụng
+- Trả lời: onPause -> onStop -> onDestroy -> onCreate -> onStart -> onResume
+
+Câu 5: Các phương thức vòng đời được gọi khi ứng dụng đang chạy và người sử
+dụng bấm vào nút home và sau đó mở lại ứng dụng
+- Trả lời: onPause -> onStop -> onRestart -> onStart -> onResume
+
+Câu 6: Nếu cần lưu thông tin của ứng dụng để khôi phục lại trạng thái hiển thị của ứng dụng
+khi chạy lại ứng dụng thì cần phải thực hiện trong phương thức vòng đời
+- Trả lời: Phương thức vòng đời onStop.
+- Giải thích: Vì phương thức onStop() được gọi khi Activity không còn được nhìn thấy nữa, có thể một màn hình nào khác che lên hoàn toàn, có thể một ứng dụng nào đó vào foreground, hoặc người dùng nhấn nút Home để về màn hình chính.
+Có thể dùng phương thức onStop() để lưu trữ dữ liệu ứng dụng hoặc để giải phóng các tài nguyên đang dùng, ngưng các API còn đang gọi dang dở.
+Tuy nhiên khi onStop() được gọi không phải là dừng Activity.
+Người dùng hoàn toàn có thể quay lại sử dụng Activity sau đó mà không cần phải khởi động lại Activity, lúc này thì phương thức onRestart() và onStart() được gọi kế tiếp nhau.
